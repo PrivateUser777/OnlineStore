@@ -1,6 +1,70 @@
-@@include('jquery-3.5.1.min.js')
+'use strict'
 
-window.addEventListener('DOMContentLoaded', () => {
+
+//Библиотеки*****************************
+@@include('swiper.min.js');
+
+//Мои файлы******************************
+@@include('dynamicAdaptive.js');
+@@include('swiperSlider.js');
+@@include('functions.js');
+@@include('spoilers.js');
+
+
+
+//TODO *********************************************Основной JavaScript код****************************************************************
+
+window.onload = function (){
+
+	document.addEventListener('click', documentActions);
+
+	const menuItems = document.querySelectorAll('.menu__item');
+
+	function documentActions(event){
+		const targetElement = event.target;
+		if(window.innerWidth > 768 && isMobile.any()){
+
+			//При нажатии на стрелку подменю будет открываться и закрываться
+			if(targetElement.classList.contains('menu__arrow')){
+				targetElement.closest('.menu__item').classList.toggle('_hover');
+			}
+
+			//на тачскринах при нажатии на пустое поле, под меню будет закрываться
+			if(!targetElement.closest('.menu__item') && document.querySelectorAll('.menu__item._hover').length > 0){
+				menuItems.forEach(item => {
+					item.classList.remove('_hover');
+				});
+			}
+		}
+
+		//Присвоение класса _active к полю поиск
+		if(targetElement.classList.contains('search__icon')){
+			document.querySelector('.search').classList.toggle('_active');
+		}
+		
+		if(!targetElement.closest('.search') && document.querySelectorAll('.search._active')){
+			document.querySelector('.search').classList.remove('_active');
+		}
+
+		//!Меню бургер
+// // // // // // // // // // // // // // // // // // // // //// // // // // // // // // // // // // // // // //
+		if(targetElement.classList.contains('menu__link') || targetElement.classList.contains('menu__sub-link')){
+			document.querySelector('.menu').classList.toggle('_active');
+			document.querySelector('.burger').classList.toggle('burger_active');
+		}
+		if(targetElement.closest('.burger')){
+			document.querySelector('.burger').classList.toggle('burger_active');
+			document.querySelector('.menu').classList.toggle('_active');
+		}
+		if(targetElement.classList.contains('menu')){
+			document.querySelector('.burger').classList.toggle('burger_active');
+			document.querySelector('.menu').classList.toggle('_active');
+		}
+// // // // // // // // // // // // // // // // // // // // //// // // // // // // // // // // // // // // // //
+
+
+	}
+}
 	
 	
 
@@ -105,4 +169,3 @@ window.addEventListener('DOMContentLoaded', () => {
 		$(this).toggleClass('active').next().slideToggle(300);
 	});*/
 // // // // // // // // // // // // // // // // // // // // //// // // // // // // // // // // // // // // // //
-});
