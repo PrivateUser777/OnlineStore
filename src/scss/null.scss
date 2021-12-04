@@ -41,6 +41,7 @@ input,
 button,
 textarea {
 	font-family: $fontfamily;
+	background-color: transparent;
 }
 input::-ms-clear {
 	display: none;

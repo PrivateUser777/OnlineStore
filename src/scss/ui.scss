@@ -26,4 +26,19 @@ body.ie {
 	}
 }
 
+
+._logo{
+	font-weight: 700;
+	font-size: 24px;
+	line-height: calc(29 / 24 * 100%);
+	color: #000000;
+}
+
+._footer-title{
+	font-weight: 700;
+	@include adaptiv-value("font-size", 24, 20, 1);
+	line-height: calc(29 / 24 * 100%);
+	color: #000000;
+}
+
 //</ГОТОВЫЕ КЛАССЫ>====================================================================================================
