@@ -39,6 +39,7 @@ $redColor: #E97171;
 body {
 	color: $maneColor;
 	font-size: 16px;
+	font-weight: 600;
 
 	&.lock {
 		overflow: hidden;
