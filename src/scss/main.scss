@@ -4,7 +4,232 @@
 
 
 
+//!Стили для секции Promo
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+.promo {
+	background: #FCF8F3;
 
+	&__container {
+		position: relative;
+		@media(min-width: $md2+px){
+			&::before{
+				content: "";
+				position: absolute;
+				height: 100%;
+				width: 100vw;
+				top: 0;
+				right: 376px;
+				background-color: #f9f1e7;
+			}
+		}
+	}
+
+	&__body {
+		position: relative;
+		
+		z-index: 2;
+		padding: 140px 0px 0px 0px;
+		
+		@media(max-width: $md2+px){
+			padding: 80px 0px 0px 0px;
+		}
+		@media(max-width: $md3+px){
+			padding: 60px 0px 0px 0px;
+		}
+		@media(min-width: $md2+px){
+			display: flex;
+		}
+	}
+
+	&__content {
+		flex: 0 0 calc(494 / 1240 * 100%);
+		position: relative;
+		align-self: flex-start;
+		z-index: 5;
+		background: rgba(255, 255, 255, 0.72);
+		padding-right: 15px;
+		padding-left: 15px;
+		@include adaptiv-value('padding-top', 60, 15, 1);
+		@include adaptiv-value('padding-bottom', 60, 15, 1);
+		@media(min-width: $md2+px){
+			@include adaptiv-value('padding', 60, 1, 1);
+			// Если браузер поддерживает backdrop-filter
+			@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))){
+				background: rgba(255, 255, 255, 0.72);
+				backdrop-filter: blur(31px);
+			}
+		}
+		@media(max-width: $md2+px){
+			margin: 0px -15px;
+		}
+
+	}
+
+	&__title {
+		font-weight: 700;
+		@include adaptiv-value('font-size', 56, 24, 1);
+		line-height: 120%;
+		&:not(:last-child){
+			margin: 0px 0px calc(16px/56px * 1em) 0px;
+		}
+	}
+
+	&__text {
+		font-weight: 500;
+		font-size: 20px;
+		@include adaptiv-value('font-size', 20, 16, 1);
+		line-height: 150%;
+		color: #898989;
+		&:not(:last-child){
+			margin: 0px 0px calc(48px/20px * 1em) 0px;
+		}
+	}
+
+	&__button {
+		background-color: $orangeColor;
+		@include adaptiv-value('min-height', 78, 45, 1);
+		@include adaptiv-value('font-size', 20, 16, 1);
+		color: #fff;
+		width: 100%;
+		line-height: 150%;
+		@media(any-hover: hover){
+			&:hover{
+				background-color: #86502f;
+			}
+		}
+	}
+
+	&__slider-content {
+		flex: 1 1 auto;
+		min-width: 0;
+		@media(max-width: $md2+px){
+			display: flex;
+			flex-direction: column-reverse;
+			margin: 0 -15px;
+		}
+	}
+
+	.slider-content {
+
+		&__controls {
+		}
+	
+		&__slider-main {
+		}
+	}
+
+	.slider-controls {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		@media(min-width: $md2+px){
+			padding-left: 32px;
+			padding-bottom: 22px;
+		}
+		@media(max-width: $md2+px){
+			margin: 10px 0px 20px 0px;
+		}
+
+
+		&__dotts {
+			@media(min-width: $md2+px){
+				padding-right: 20px;
+			}
+			@media(max-width: $md2+px){
+				justify-content: center;
+			}
+		}
+		&__arrows{
+			
+		}
+	}
+
+	.slider-main {
+		@media(min-width: $md2+px){
+			position: relative;
+			left: -188px;
+		}
+		
+		@media(min-width: $md2+px){
+			@include adaptiv-value('min-width', 934, 290, 1);
+		}
+
+		&__body {
+
+			overflow: visible;
+			
+		}
+	
+		&__slide {
+		}
+	
+		&__image {
+			padding-bottom: 66.7%;
+		}
+	
+		&__content {
+			min-width: 295px;
+			max-height: 300px;
+			max-width: 450px;
+			overflow: auto;
+			color: inherit;
+			display: flex;
+			flex-direction: column;
+			background: rgba(255, 255, 255, 0.72);
+			@include adaptiv-value('padding', 24, 15, 1);
+			@media(min-width: $md3+px){
+				position: absolute;
+				min-width: 350px;
+				@include adaptiv-value('right', 40, 0, 1);
+				@include adaptiv-value('bottom', 40, 0, 1);
+			}
+			// Если браузер поддерживает backdrop-filter
+			@supports ((-webkit-backdrop-filter: blur(31px)) or (backdrop-filter: blur(31px))){
+				background: rgba(255, 255, 255, 0.72);
+				backdrop-filter: blur(31px);
+			}
+		}
+	
+		&__title {
+			@include adaptiv-value('font-size', 28, 22, 1);
+			line-height: 120%;
+			&:not(:last-child){
+				margin: 0px 0px calc(4px / 28px * 1em) 0px;
+			}
+		}
+	
+		&__text {
+			font-weight: 500;
+			line-height: 150%;
+			color: #616161;
+			&:not(:last-child){
+				margin: 0px 0px calc(8px / 16px * 1em) 0px;
+			}
+		}
+	
+		&__price {
+			display: flex;
+			flex-direction: row-reverse;
+			justify-content: space-between;
+			line-height: 150%;
+			align-items: center;
+			@include adaptiv-value('font-size', 20, 16, 1);
+			&:before{
+				margin: 0px 0px 0px 10px;
+			}
+		}
+	}
+
+	.swiper-container {
+	}
+
+	.swiper-wrapper {
+	}
+
+	.swiper-slide {
+	}
+	
+}
 
 
 

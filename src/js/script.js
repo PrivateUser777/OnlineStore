@@ -5,10 +5,11 @@
 @@include('swiper.min.js');
 
 //Мои файлы******************************
-@@include('dynamicAdaptive.js');
+@@include('dynamicAdapt.js');
 @@include('swiperSlider.js');
 @@include('functions.js');
 @@include('spoilers.js');
+
 
 
 
@@ -47,7 +48,7 @@ window.onload = function (){
 		}
 
 		//!Меню бургер
-// // // // // // // // // // // // // // // // // // // // //// // // // // // // // // // // // // // // // //
+
 		if(targetElement.classList.contains('menu__link') || targetElement.classList.contains('menu__sub-link')){
 			document.querySelector('.menu').classList.toggle('_active');
 			document.querySelector('.burger').classList.toggle('burger_active');
@@ -60,10 +61,22 @@ window.onload = function (){
 			document.querySelector('.burger').classList.toggle('burger_active');
 			document.querySelector('.menu').classList.toggle('_active');
 		}
-// // // // // // // // // // // // // // // // // // // // //// // // // // // // // // // // // // // // // //
-
-
 	}
+
+	//!Добавляет фот меню при скроле
+	const headerElement = document.querySelector('.header');
+
+	const callback = function(entries, observer) {
+		if(entries[0].isIntersecting) {
+			headerElement.classList.remove('_scroll');
+		} else {
+			headerElement.classList.add('_scroll');
+		}
+	};
+
+	const headerObserver = new IntersectionObserver(callback);
+	headerObserver.observe(headerElement);
+
 }
 	
 	
