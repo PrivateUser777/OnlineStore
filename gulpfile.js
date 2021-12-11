@@ -11,6 +11,7 @@ let path = {
 		js: project_folder + "/js/",
 		img: project_folder + "/img/",
 		fonts: project_folder + "/fonts/",
+		json: project_folder + "/json/"
 	},
 	src: {
 		html: [source_folder + "/*.html", "!" + source_folder + "/_*.html"],
@@ -18,12 +19,14 @@ let path = {
 		js: source_folder + "/js/script.js",
 		img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
 		fonts: source_folder + "/fonts/*.ttf",
+		json: source_folder + "/json/*.json"
 	},
 	watch: {
 		html: source_folder + "/**/*.html",
 		css: source_folder + "/scss/**/*.scss",
 		js: source_folder + "/js/**/*.js",
 		img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
+		json: source_folder + "/json/*.json"
 	},
 	clean: "./" + project_folder + "/"
 }
@@ -58,6 +61,7 @@ function browserSync() {
 	});      
 }
 
+
 function html() {
 	return src(path.src.html)
 		.pipe(fileinclude())
@@ -88,6 +92,12 @@ function js() {
 		.pipe(rename({extname: ".min.js"}))
 		.pipe(dest(path.build.js))
 		.pipe(browsersync.stream())
+}
+
+function json() {
+	return src(path.src.json)
+		// .pipe(plumber())
+		.pipe(dest(path.build.json))
 }
 
 function images() {
@@ -165,19 +175,21 @@ function watchFiles() {
 	gulp.watch([path.watch.css], css);
 	gulp.watch([path.watch.js], js);
 	gulp.watch([path.watch.img], images);
+	gulp.watch([path.watch.json], json);
 }
 
 function clean() {
 	return del(path.clean);
 }
 
-let build = gulp.series(clean,  gulp.parallel(js, css, html, images, fonts), fontsStyle);
+let build = gulp.series(clean,  gulp.parallel(js, css, json, html, images, fonts), fontsStyle);
 let watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.fontsStyle = fontsStyle;
 exports.fonts = fonts;
 exports.images = images;
 exports.js = js;
+exports.json = json;
 exports.css = css;
 exports.html = html;
 exports.build = build;

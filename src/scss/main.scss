@@ -284,9 +284,211 @@
 
 
 
+//!Стили для секции Преимущества
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
+.products {
+	@include adaptiv-value('padding-bottom', 44, 30, 1);
 
+	&__title {
+		margin: 0px 0px calc(32px/40px * 1em) 0px;
+	}
 
+	&__items {
+		display: grid;
+		gap: 32px;
+		grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+	}
 
+	&__footer{
+		padding-top: 32px;
+		text-align: center;
+	}
+
+	&__more{
+		background: #FFFFFF;
+		border: 1px solid #E89F71;
+		color: $orangeColor;
+		min-width: 245px;
+		padding: 12px 15px;
+		@media(any-hover: hover){
+			&:hover{
+				background-color: #E89F71;
+				color: #fff;
+			}
+		}
+		&._hold{
+			opacity: 0.2;
+			cursor: default;
+		}
+	}
+
+	&__item {
+	}
+
+	.item-product {
+		background: #f4f5f7;
+		display: flex;
+		flex-direction: column;
+		position: relative;
+		@media(any-hover: hover){
+			&:hover{
+				.item-product__actions{
+					opacity: 1;
+					visibility: visible;
+				}
+			}
+		}
+
+		&__labels {
+			position: absolute;
+			z-index: 2;
+			display: flex;
+			flex-direction: column;
+			@include adaptiv-value('right', 24, 10, 1);
+			@include adaptiv-value('top', 24, 10, 1);
+		}
+	
+		&__label {
+			flex: 0 0 48px;
+			width: 48px;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			color: #fff;
+			font-weight: 500;
+			&:not(:last-child){
+				margin-bottom: 10px;
+			}
+			&_sale {
+				background-color: $redColor;
+			}
+			&_new{
+				background-color: $greenColor;
+			}
+		}
+	
+		&__image {
+			padding: 0px 0px calc(301px/285px * 100%) 0px;
+		}
+	
+		&__body {
+			flex: 1 1 auto;
+			padding: 16px 16px 30px 16px;
+			display: flex;
+			flex-direction: column;
+		}
+	
+		&__content {
+			flex: 1 1 auto;
+		}
+	
+		&__title {
+			@include adaptiv-value('font-size', 24, 20, 1);
+			line-height: 120%;
+			margin: 0px 0px calc(8px/24px * 1em) 0px;
+		}
+	
+		&__text {
+			color: #898989;
+			line-height: 150%;
+			@include adaptiv-value('font-size', 16, 15, 1);
+			margin: 0px 0px calc(8px/16px * 1em) 0px;
+		}
+	
+		&__prices {
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			line-height: 150%;
+		}
+	
+		&__price {
+			@include adaptiv-value('font-size', 20, 16, 1);	
+			&_old {
+				@include adaptiv-value('font-size', 16, 14, 1);
+				font-weight: 400;
+				margin: 0px 0px 0px 16px;
+				color: #b0b0b0;
+				text-decoration: line-through;
+			}
+		}
+	
+		&__actions {
+			@media(any-hover: none){
+				padding: 15px 0px 0px 0px;
+			}
+			@media(any-hover: hover){
+				opacity: 0;
+				visibility: hidden;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				background-color: rgba(58, 58, 58, 0.74);
+				z-index: 3;
+				transition: all 0.3s ease 0s;
+			}
+		}
+
+		.actions-product {
+
+			&__body {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+			}
+		
+			&__button {
+				flex: 1 1 100%;
+				&:not(:last-child){
+					margin: 0px 0px 24px 0px;
+				}
+				&._hold{
+					opacity: 0.2;
+					cursor: default;
+				}
+		
+				&_white {
+					background: #fff;
+					color: $orangeColor;
+					@include adaptiv-value('min-height', 48, 40, 1);
+					font-size: 16px;
+					line-height: 150%;
+					@media(any-hover: hover){
+						&:hover{
+							background-color: $orangeColor;
+							color: #fff;
+						}
+					}
+				}
+			}
+		
+			&__link {
+				display: flex;
+				align-items: center;
+				color: inherit;
+				transition: all 0.3s ease 0s;
+				&:before{
+					margin-right: 8px;
+					font-size: 16px;
+				}
+				@media(any-hover: hover){
+					color: #fff;
+					&:hover{
+						color: $orangeColor;
+					}
+				}
+			}
+		}
+	}
+}
+
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 
 

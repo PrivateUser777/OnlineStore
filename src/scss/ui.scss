@@ -136,9 +136,6 @@ body.ie {
 	}
 }
 
-
-
-
 ._btn{
 	display: inline-flex;
 	justify-content: center;
@@ -146,6 +143,20 @@ body.ie {
 	font-weight: 600;
 	padding: 0 15px;
 	transition: all 0.3s ease 0s;
+}
+
+.title{
+	font-weight: 700;
+	@include adaptiv-value('font-size', 40, 30, 1);
+	line-height: 120%;
+	text-align: center;
+}
+
+._flyImage._ibg{
+	opacity: 1;
+	position: fixed;
+	z-index: 100;
+	transition: all 1s ease 0s;
 }
 
 //</ГОТОВЫЕ КЛАССЫ>====================================================================================================
