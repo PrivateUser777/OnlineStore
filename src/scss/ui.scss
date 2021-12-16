@@ -12,19 +12,19 @@
 	}
 }
 
-body.ie {
-	.ibg {
-		background-position: center;
-		background-size: cover;
-		background-repeat: no-repeat;
-	}
-	.ibg img {
-		width: 0;
-		height: 0;
-		opacity: 0;
-		visibility: hidden;
-	}
-}
+// body.ie {
+// 	.ibg {
+// 		background-position: center;
+// 		background-size: cover;
+// 		background-repeat: no-repeat;
+// 	}
+// 	.ibg img {
+// 		width: 0;
+// 		height: 0;
+// 		opacity: 0;
+// 		visibility: hidden;
+// 	}
+// }
 
 
 ._logo{
@@ -45,13 +45,10 @@ body.ie {
 	display: grid;
 	grid-template-columns: repeat(2, 48px);
 	column-gap: 8px;
-	@media(max-width: $md2+px){
-		display: none;
-	}
-
 }
 
 .slider-arrow {
+	pointer-events: auto;
 	border-radius: 50%;
 	height: 48px;
 	background-color: rgba(232, 159, 113, 0.3);
